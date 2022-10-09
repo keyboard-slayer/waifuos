@@ -88,5 +88,5 @@ struct Com : public Writer
 	}
 
 	constexpr Com(uint16_t _port) : Com(_port, 9600) {}
-	constexpr Com() : Com(0x3f8, 9600) {}
+	constexpr Com() : Com(COM1, 9600) {}
 };

@@ -1,7 +1,7 @@
 mainmenu "WaifuOS menuconfig"
 
 source "src/kernel/Kconfig"
-source "src/libs/kawaii-abstract/Kconfig"
+source "src/libs/kawaii-embed/Kconfig"
 
 menu "Emulation options"
     config ENBABLE_KVM

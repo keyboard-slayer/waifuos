@@ -1,8 +1,8 @@
 # --- Variables ---------------------------------------------------------------
-CONFIG_COM_PORT_1 = 0x3f8
-CONFIG_COM_PORT_2 = 0x2f8
-CONFIG_COM_PORT_3 = 0x3e8
-CONFIG_COM_PORT_4 = 0x2e8
+CONFIG_COM_PORT_1=0x3f8
+CONFIG_COM_PORT_2=0x2f8
+CONFIG_COM_PORT_3=0x3e8
+CONFIG_COM_PORT_4=0x2e8
 
 # --- Compilers ---------------------------------------------------------------
 CROSS_CXX := clang++ --target=x86_64-pc-none-elf
@@ -18,7 +18,7 @@ CROSS_CXXFLAGS := $(CXXFLAGS) -fno-rtti -fno-exceptions                        \
 				-mno-red-zone  -m64 -march=x86-64	                           \
 				-mabi=sysv -D__x86_64__   					       			   \
 				-D__CONFIG_BAUDS__=$(CONFIG_BAUD_RATE)                         \
-				-D__CONFIG_SERIAL__==${CONFIG_COM_PORT_${CONFIG_SERIAL_PORT}}
+				-D__CONFIG_SERIAL__=${CONFIG_COM_PORT_${CONFIG_SERIAL_PORT}}
 
 CROSS_ASFLAGS := -f elf64 -g -F dwarf
 CROSS_LDFLAGS := -z max-page-size=0x1000 -z common-page-size=0x1000 -z norelro \
@@ -54,4 +54,5 @@ EMUFLAGS += -no-shutdown
 endif
 
 # --- Sources -----------------------------------------------------------------
-KERNEL_SRC += $(wildcard src/arch/x86_64/*.cpp) $(wildcard src/arch/x86_64/*.s)
+KERNEL_SRC += $(wildcard src/arch/x86_64/*.cpp) $(wildcard src/arch/x86_64/*.s)\
+			  $(wildcard src/libs/kawaii-embed/embed-waifu/*.cpp)

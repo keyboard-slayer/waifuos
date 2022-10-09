@@ -5,7 +5,7 @@ $(error "No architecture selected")
 endif
 
 ifeq ($(CONFIG_LOADER_LIMINE), y)
-include src/libs/kawaii-abstract/limine/.build.mk
+include src/libs/kawaii-embed/embed-limine/.build.mk
 else
 $(error "No loader selected")
 endif

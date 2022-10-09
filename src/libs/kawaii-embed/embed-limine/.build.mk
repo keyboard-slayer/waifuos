@@ -9,7 +9,7 @@ else
 endif
 
 # --- Files -------------------------------------------------------------------
-KERNEL_SRC += $(wildcard $(LIBS_DIR)/kawaii-abstract/limine/*.cpp)
+KERNEL_SRC += $(wildcard $(LIBS_DIR)/kawaii-embed/embed-limine/*.cpp)
 
 # --- Rules -------------------------------------------------------------------
 $(BOOT)/EFI/BOOT/BOOTX64.EFI: $(BOOT)/boot/limine.cfg
@@ -38,7 +38,7 @@ $(BOOT_DIR)/EFI/BOOT/BOOTX64.EFI: $(BOOT_DIR)/boot/limine.cfg
 	wget https://github.com/limine-bootloader/limine/raw/v$(LIMINE_VER)-binary/BOOTX64.EFI -O $(BOOT_DIR)/EFI/BOOT/BOOTX64.EFI
 
 $(BOOT_DIR)/boot/limine.cfg:
-	@cp $(LIBS_DIR)/kawaii-abstract/limine/limine.cfg $(BOOT_DIR)/boot/limine.cfg
+	@cp $(LIBS_DIR)/kawaii-embed/embed-limine/limine.cfg $(BOOT_DIR)/boot/limine.cfg
 
 kernel.iso: $(BOOT_DIR)/boot/limine.cfg ./limine-deploy $(BOOT_DIR)/boot/limine.sys $(BOOT_DIR)/boot/limine-cd.bin $(BOOT_DIR)/boot/limine-cd-efi.bin
 	xorriso -as mkisofs -b /boot/limine-cd.bin -no-emul-boot -boot-load-size 4 -boot-info-table \

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <kawaii-abstract/loader.hpp>
+#include <kawaii-embed/loader.hpp>
 #include <kawaii-io/traits.hpp>
 #include <kawaii-media/fonts.hpp>
 #include <kawaii-media/tga.hpp>

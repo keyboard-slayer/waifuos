@@ -8,3 +8,5 @@
 -nostdlib
 -nostdlib++
 -Wno-writable-strings
+-D__CONFIG_BAUDS__=9600
+-D__CONFIG_SERIAL__=0x3f8
