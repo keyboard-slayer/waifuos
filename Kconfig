@@ -1,0 +1,45 @@
+mainmenu "WaifuOS menuconfig"
+
+source "src/kernel/Kconfig"
+source "src/libs/kawaii-abstract/Kconfig"
+
+menu "Emulation options"
+    config ENBABLE_KVM
+        bool "Enable KVM"
+        depends on !DUMP_INTERRUPT
+        default y
+        help
+            Enable KVM support.
+
+    config DUMP_INTERRUPT
+        bool "Dump interrupt state"
+        default n
+        help 
+            Dump interrupt state on each interrupt.
+    
+
+    config NO_POWEROFF
+        bool "No poweroff"
+        default n
+        help
+            Do not power off the machine when the kernel exits.
+    
+    config MEMORY
+        int "Memory size (MB)"
+        default 256
+        help
+            Memory size in MB.
+    
+    config CPU_CORE
+        int "Cpu Core"
+        default 4
+        help
+            Cpu Core.
+
+    config EFI_BIOS_PATH
+        string "EFI bios path"
+        default "/usr/share/ovmf/x64/OVMF_CODE.fd"
+        depends on LOADER_EFI
+        help
+            EFI bios path.
+endmenu

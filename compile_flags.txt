@@ -1,0 +1,10 @@
+-Wall
+-Wextra
+-Werror
+-Isrc/libs/
+-Isrc/
+-std=c++2b
+-fno-builtin
+-nostdlib
+-nostdlib++
+-Wno-writable-strings

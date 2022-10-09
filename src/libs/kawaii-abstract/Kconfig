@@ -1,0 +1,32 @@
+
+menu "Bootloader"
+    choice
+        prompt "Bootloader to use"
+        default LOADER_LIMINE
+        help 
+            Select the bootloader to use.
+            The default is limine.
+
+        config LOADER_LIMINE
+            bool "Limine"
+            depends on ARCH_X86-64
+            help
+                Use limine as bootloader.
+    endchoice
+
+    config LOADER_EFI
+        bool "EFI"
+        depends on LOADER_LIMINE
+        default y
+endmenu
+
+choice
+    prompt "Architecture"
+    default ARCH_X86-64
+
+config ARCH_X86-64
+    bool "x86 (64-bit) architecture"
+
+endchoice
+
+source "src/arch/x86_64/Kconfig"

@@ -1,0 +1,18 @@
+menu "Devices"
+    visible if ARCH_X86-64
+
+    menu "Serial"
+        config SERIAL_PORT
+            int "Serial port"
+            default 1
+            help
+              This is the serial port that the kernel will use for console
+              output.
+        
+        config BAUD_RATE
+            int "Baud rate"
+            default 9600
+            help
+                This is the speed of the serial communication
+    endmenu
+endmenu
